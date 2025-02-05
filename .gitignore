@@ -6,3 +6,4 @@ firstazure
 openshift-install
 terraform.tfstate
 .terraform
+.terraform.lock.hcl
