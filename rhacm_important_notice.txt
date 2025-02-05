@@ -17,3 +17,4 @@ oc create secret generic aks-secret \
 
 as described in the article above, later creating MultiClusterHub in advanced options section we need to provide pull secret we just created.
 
+--- End of Important Notice ---
