@@ -1,0 +1,8 @@
+.ssh
+02_azure_env_real.sh
+pull_secret.sh
+ocp-azure
+firstazure
+openshift-install
+terraform.tfstate
+.terraform
