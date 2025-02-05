@@ -1,10 +1,14 @@
 .ssh
-02_azure_env_real.sh
+01_azure_env_real.sh
 login.txt
-pull_secret.sh
+pull-secret.txt
 ocp-azure
 firstazure
 openshift-install
 terraform.tfstate
+terraform.tfstate.backup
 .terraform
 .terraform.lock.hcl
+13372670-azure-pull-secret.yaml
+image_pull_secret.txt
+imge_pull_secret.txt
