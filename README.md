@@ -68,7 +68,7 @@ get newly created kubectl configuration:
 ```
 note console access and kubeadmin password once process is done
 
-8. Configure RHACM and integrate AKS cluster according to rhacm_important_notice.txt instructions.
+8. Configure RHACM and integrate AKS cluster according to [rhacm_important_notice.txt](rhacm_important_notice.txt) instructions.
 
 ### Project Screenshots
 
