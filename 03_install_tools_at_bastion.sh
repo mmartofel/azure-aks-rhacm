@@ -75,8 +75,7 @@ log "Installing OpenShift Installer..."
 wget -q https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux.tar.gz
 mkdir -p openshift_install
 tar xzf openshift-install-linux.tar.gz -C openshift_install
-sudo mv openshift_install/openshift-install ../
-rm openshift-install-linux.tar.gz
+sudo mv openshift_install/openshift-install .
 rm -rf openshift_install
 
 # Verify installations
