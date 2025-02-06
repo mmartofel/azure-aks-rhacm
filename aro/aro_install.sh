@@ -22,6 +22,7 @@ echo
 az provider register -n Microsoft.RedHatOpenShift --wait
 az provider register -n Microsoft.Compute --wait
 az provider register -n Microsoft.Storage --wait
+az provider register -n Microsoft.Authorization --wait
 
 # Create the resource group
 az group create --name $RESOURCE_GROUP --location $REGION
