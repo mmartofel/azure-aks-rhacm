@@ -71,9 +71,9 @@ note console access and kubeadmin password once process is done
 8. Configure RHACM and integrate AKS cluster according to [rhacm_important_notice.txt](rhacm_important_notice.txt) instructions.
 
 
---- Note:
+** Note: **
 I'm not covering details about Azur environment setup as it may vary.
-Two of the scripts 01_azure_env.sh and 02_az_login.sh are provided for your convenience.
+Two of the [scripts 01_azure_env.sh](01_azure_env.sh) and [02_az_login.sh](02_az_login.sh) are provided for your convenience.
 They are simple enough and self explanatory.
 
 ### Project Screenshots
