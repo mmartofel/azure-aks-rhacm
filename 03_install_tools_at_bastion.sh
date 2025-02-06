@@ -2,15 +2,25 @@
 
 set -e  # Exit immediately if a command exits with a non-zero status
 
+# Prevent interactive prompts
+export DEBIAN_FRONTEND=noninteractive
+
 # Function to log messages
 log() {
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*"
 }
 
-# Update and upgrade system packages
+# Update and upgrade system packages with non-interactive options
 log "Updating system packages..."
 sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt-get upgrade -y -o Dpkg::Options::="--force-confold" -o Dpkg::Options::="--force-confdef"
+
+# Install needrestart to handle daemon restarts
+sudo apt-get install -y needrestart
+
+# Automatically restart services that need restarting
+log "Restarting outdated services..."
+sudo needrestart -r a
 
 # Install core prerequisites
 log "Installing core prerequisites..."
