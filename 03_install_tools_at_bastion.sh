@@ -76,6 +76,7 @@ wget -q https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshi
 mkdir -p openshift_install
 tar xzf openshift-install-linux.tar.gz -C openshift_install
 sudo mv openshift_install/openshift-install .
+rm openshift-install-linux.tar.gz
 rm -rf openshift_install
 
 # Verify installations
@@ -96,7 +97,7 @@ echo "OpenShift CLI version:"
 oc version
 
 echo "OpenShift Installer version:"
-openshift-install version
+./openshift-install version
 
 log "Installation of tools complete!"
 
