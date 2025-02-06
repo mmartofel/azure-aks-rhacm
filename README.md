@@ -17,14 +17,62 @@ Setup process could be done from your local machine, or from remote, Azure basti
 1. Generate SSH key pair:
 
 ```
-$ cd bastion
-$ ./01_generate_ssh_key.sh
+cd bastion
+./01_generate_ssh_key.sh
+```
+2. Create bastion host:
+
+```
+terraform init
+terraform plan
+terraform apply
 ```
 
+3. Once bastion host is ready for use, get its IP and SSH to it: 
 
-Once bastion host is ready we can ssh to it
+```
+ssh -i .ssh/bastion_key azureuser@[YOUR_IP]
+```
+
+4. Clone this repository to the bastion host:
+
+```
+git clone https://github.com/mmartofe/azure-aks-rhacm.git
+```
+
+5. Install required tools at the bastion host:
+
+```
+cd azure-aks-rhacm/bastion
+./02_install_tools_at_bastion.sh
+```
+
+6. Configure sample AKS cluster at your Azure subscription:
+
+```
+cd azure-aks-rhacm/aks
+terraform init
+terraform plan -var="subscription_id=$SUBSCRIPTION"
+terraform apply -var="subscription_id=$SUBSCRIPTION"
+```
+get newly created kubectl configuration:
+
+```
+./01_get_aks_credentials.sh
+```
+
+7. Install Red Hat OpenShift at your Azure subscription:
+
+```
+./04_ocp_install.sh
+```
+note console access and kubeadmin password once process is done
+
+8. Configure RHACM and integrate AKS cluster according to rhacm_important_notice.txt instructions.
 
 ### Project Screenshots
+
+After successful installation of RHACM operator and integration to AKS cluster you should see effects like on the following screenshots:
 
 #### Image 1
 ![Image 1](img/1.png)
@@ -41,8 +89,16 @@ Once bastion host is ready we can ssh to it
 #### Image 5
 ![Image 5](img/5.png)
 
-### Project Overview
-[Add your project description here]
+## License
 
-### Setup Instructions
-[Add setup and installation instructions]
+This project is licensed under the Apache License, Version 2.0. See the [LICENSE](LICENSE) file for details.
+
+### Apache License Key Points
+
+- You are free to use, modify, and distribute this software
+- Commercial use is permitted
+- Modification and distribution require preservation of copyright and license notices
+- No warranty is provided
+- Contributors provide the software "as is"
+
+For the full license text, please refer to the [LICENSE](LICENSE) file in the project root.
