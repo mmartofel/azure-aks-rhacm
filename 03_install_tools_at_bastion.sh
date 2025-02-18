@@ -46,6 +46,7 @@ curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sud
 AZ_REPO=$(lsb_release -cs)
 echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
 sudo apt-get update
+sudo needrestart -r a
 sudo apt-get install -y azure-cli
 
 # Install Terraform
@@ -104,8 +105,6 @@ log "Installation of tools complete!"
 # Optional: Add helpful message about next steps
 echo "
 Next steps:
-1. Log in to Azure: az login
-2. Set your default subscription: az account set --subscription 'your-subscription-id'
-3. Install OpenShift cluster with 04_ocp_install.sh
-
+1. Use helper script 01_azure_env.sh to login to Azure
+2. Install OpenShift cluster with 04_ocp_install.sh
 "
